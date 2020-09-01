@@ -59,5 +59,15 @@ docker ps'''
       }
     }
 
+    stage('Display Stage') {
+      steps {
+        ansiColor(colorMapName: 'xterm') {
+          sh 'curl -i localhost:49160'
+          echo 'Displays the local page output of nodejs app'
+        }
+
+      }
+    }
+
   }
 }
