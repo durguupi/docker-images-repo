@@ -26,7 +26,13 @@ ls -ltrh'''
 
     stage('NPM install Stage') {
       steps {
-        sh 'npm install '
+        dir(path: 'nodejsapp') {
+          sh '''npm install
+ls -ltrh
+'''
+          echo 'Successfully installed npm packages and locks'
+        }
+
       }
     }
 
