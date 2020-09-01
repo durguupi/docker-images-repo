@@ -41,9 +41,21 @@ ls -ltrh
         dir(path: 'nodejsapp') {
           sh 'docker build -t local/node-web-app .'
           sh '''echo "Listing of docker images"
-docker images ls'''
+docker images'''
         }
 
+      }
+    }
+
+    stage('Docker run') {
+      steps {
+        dir(path: 'nodejsapp') {
+          echo 'Running docker image'
+          sh 'docker run -p 49160:8080 -d local/node-web-app'
+        }
+
+        sh '''echo "Display the running container"
+docker ps'''
       }
     }
 
