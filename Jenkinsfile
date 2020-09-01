@@ -36,5 +36,16 @@ ls -ltrh
       }
     }
 
+    stage('Docker build') {
+      steps {
+        dir(path: 'nodejsapp') {
+          sh 'docker build -t local/node-web-app .'
+          sh '''echo "Listing of docker images"
+docker images ls'''
+        }
+
+      }
+    }
+
   }
 }
