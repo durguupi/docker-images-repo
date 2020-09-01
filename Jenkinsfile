@@ -14,5 +14,15 @@ pipeline {
       }
     }
 
+    stage('Changing directory') {
+      steps {
+        dir(path: 'nodejsapp') {
+          sh '''pwd
+ls -ltrh'''
+        }
+
+      }
+    }
+
   }
 }
