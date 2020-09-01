@@ -24,5 +24,11 @@ ls -ltrh'''
       }
     }
 
+    stage('NPM install Stage') {
+      steps {
+        sh 'npm install '
+      }
+    }
+
   }
 }
